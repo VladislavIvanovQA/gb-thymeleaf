@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
-
     private final ProductService productService;
 
     @GetMapping("/all")
