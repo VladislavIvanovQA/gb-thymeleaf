@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,6 +32,12 @@ public class Product {
     private BigDecimal cost;
     @Column(name = "manufacture_date")
     private LocalDate manufactureDate;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(name = "cart_product",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_id"))
+    private Set<Cart> carts;
 
     @Version
     @Column(name = "VERSION")
