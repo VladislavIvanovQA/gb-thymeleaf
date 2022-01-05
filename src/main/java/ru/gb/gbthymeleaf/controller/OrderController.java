@@ -1,60 +1,25 @@
 package ru.gb.gbthymeleaf.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.gb.entityservice.model.Order;
-import ru.gb.entityservice.model.Product;
-import ru.gb.entityservice.service.OrderService;
-import ru.gb.entityservice.service.ProductService;
+import org.springframework.web.bind.annotation.RestController;
+import ru.gb.gbthymeleaf.service.OrderDtoApiV2;
 
-import java.util.Collections;
-import java.util.Set;
-
-@Controller
-@RequiredArgsConstructor
+@RestController
 @RequestMapping("/order")
+@RequiredArgsConstructor
 public class OrderController {
-    private final ProductService productService;
-    private final OrderService orderService;
-//    private final BuyerService buyerService;
-    private Order order;
+    private final OrderDtoApiV2 orderDtoApi;
 
-    @GetMapping
-    public String showForm(Model model) {
-        if (order != null) {
-            orderService.findById(order.getId());
-            model.addAttribute("products", order.getProducts());
-        } else {
-            model.addAttribute("products", Collections.emptyList());
-        }
-        return "order-product-list";
-    }
-
-    @GetMapping("/add")
+    @GetMapping(value = "/add")
     public String addProduct(@RequestParam(name = "id") Long id) {
-        if (order == null) {
-            order = new Order();
-        }
-        order.addProduct(productService.findById(id));
-        orderService.save(order);
-        return "redirect:/product/all";
+        return orderDtoApi.addProduct(id);
     }
 
-    @GetMapping("/delete")
+    @GetMapping(value = "/delete")
     public String deleteById(@RequestParam(name = "id") Long id) {
-        Set<Product> actualProducts = orderService.findById(order.getId()).getProducts();
-        for (Product actualProduct : actualProducts) {
-            if (actualProduct.getId().equals(id)) {
-                actualProducts.remove(actualProduct);
-                break;
-            }
-        }
-        order.setProducts(actualProducts);
-        orderService.save(order);
-        return "redirect:/order";
+        return orderDtoApi.deleteById(id);
     }
 }

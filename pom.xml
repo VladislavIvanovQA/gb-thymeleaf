@@ -59,7 +59,7 @@
             <groupId>ru.gb</groupId>
             <artifactId>entity-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+<!--            <scope>runtime</scope>-->
         </dependency>
     </dependencies>
 
