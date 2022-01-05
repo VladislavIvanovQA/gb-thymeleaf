@@ -1,10 +1,11 @@
-package ru.gb.entityservice.dao;
+package ru.gb.gbthymeleaf.dao;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.gb.entityservice.model.Product;
-import ru.gb.entityservice.model.enums.Status;
+
+import ru.gb.gbthymeleaf.entity.Product;
+import ru.gb.gbthymeleaf.entity.enums.Status;
 
 import java.util.List;
 import java.util.Optional;

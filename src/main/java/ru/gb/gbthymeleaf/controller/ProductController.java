@@ -3,12 +3,9 @@ package ru.gb.gbthymeleaf.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import ru.gb.entityservice.model.Product;
-import ru.gb.entityservice.service.ProductService;
+import org.springframework.web.bind.annotation.*;
+import ru.gb.gbthymeleaf.entity.Product;
+import ru.gb.gbthymeleaf.service.ProductService;
 
 import java.time.LocalDate;
 
@@ -16,12 +13,25 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
+
     private final ProductService productService;
 
     @GetMapping("/all")
     public String getProductList(Model model) {
         model.addAttribute("products", productService.findAll());
         return "product-list";
+    }
+
+    @GetMapping("/{productId}")
+    public String info(Model model, @PathVariable("productId") Long id) {
+        Product product;
+        if (id != null) {
+            product = productService.findById(id);
+        } else {
+            return "redirect:/product/all";
+        }
+        model.addAttribute("product", product);
+        return "product-info";
     }
 
     @GetMapping

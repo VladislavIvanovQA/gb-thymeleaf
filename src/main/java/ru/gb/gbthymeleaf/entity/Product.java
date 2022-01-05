@@ -1,4 +1,4 @@
-package ru.gb.entityservice.model;
+package ru.gb.gbthymeleaf.entity;
 
 import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
@@ -6,13 +6,12 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import ru.gb.entityservice.model.enums.Status;
+import ru.gb.gbthymeleaf.entity.enums.Status;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -32,12 +31,6 @@ public class Product {
     private BigDecimal cost;
     @Column(name = "manufacture_date")
     private LocalDate manufactureDate;
-
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(name = "cart_product",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_id"))
-    private Set<Cart> carts;
 
     @Version
     @Column(name = "VERSION")
