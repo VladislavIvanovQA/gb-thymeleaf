@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.gb.gbthymeleaf.entity.Product;
-import ru.gb.gbthymeleaf.service.ProductService;
+import ru.gb.entityservice.model.Product;
+import ru.gb.entityservice.service.ProductService;
 
 import java.time.LocalDate;
 

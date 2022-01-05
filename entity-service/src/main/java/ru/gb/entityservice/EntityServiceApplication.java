@@ -1,13 +1,13 @@
-package ru.gb.gbthymeleaf;
+package ru.gb.entityservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GbThymeleafApplication {
+public class EntityServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GbThymeleafApplication.class, args);
+        SpringApplication.run(EntityServiceApplication.class, args);
     }
 
 }

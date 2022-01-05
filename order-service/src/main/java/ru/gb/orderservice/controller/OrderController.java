@@ -1,8 +1,7 @@
-package ru.gb.gbthymeleaf.controller;
+package ru.gb.orderservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +10,6 @@ import ru.gb.entityservice.model.Product;
 import ru.gb.entityservice.service.OrderService;
 import ru.gb.entityservice.service.ProductService;
 
-import java.util.Collections;
 import java.util.Set;
 
 @Controller
@@ -20,19 +18,7 @@ import java.util.Set;
 public class OrderController {
     private final ProductService productService;
     private final OrderService orderService;
-//    private final BuyerService buyerService;
     private Order order;
-
-    @GetMapping
-    public String showForm(Model model) {
-        if (order != null) {
-            orderService.findById(order.getId());
-            model.addAttribute("products", order.getProducts());
-        } else {
-            model.addAttribute("products", Collections.emptyList());
-        }
-        return "order-product-list";
-    }
 
     @GetMapping("/add")
     public String addProduct(@RequestParam(name = "id") Long id) {

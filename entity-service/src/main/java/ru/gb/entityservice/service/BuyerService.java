@@ -1,11 +1,11 @@
-package ru.gb.gbthymeleaf.service;
+package ru.gb.entityservice.service;
 
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.gb.gbthymeleaf.dao.BuyerDao;
-import ru.gb.gbthymeleaf.entity.Buyer;
+import ru.gb.entityservice.dao.BuyerDao;
+import ru.gb.entityservice.model.Buyer;
 
 import java.util.List;
 
