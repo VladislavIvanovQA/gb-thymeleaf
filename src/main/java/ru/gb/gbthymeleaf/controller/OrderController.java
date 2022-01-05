@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.gb.gbthymeleaf.entity.Order;
 import ru.gb.gbthymeleaf.entity.Product;
 import ru.gb.gbthymeleaf.service.BuyerService;
@@ -15,7 +16,7 @@ import ru.gb.gbthymeleaf.service.ProductService;
 import java.util.Collections;
 import java.util.Set;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/order")
 public class OrderController {
