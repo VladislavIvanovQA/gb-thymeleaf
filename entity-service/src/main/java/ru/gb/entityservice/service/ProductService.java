@@ -1,4 +1,4 @@
-package ru.gb.gbthymeleaf.service;
+package ru.gb.entityservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import ru.gb.gbthymeleaf.dao.ProductDao;
-import ru.gb.gbthymeleaf.entity.Product;
-import ru.gb.gbthymeleaf.entity.enums.Status;
+import ru.gb.entityservice.dao.ProductDao;
+import ru.gb.entityservice.model.Product;
+import ru.gb.entityservice.model.enums.Status;
 
 import java.util.List;
 import java.util.Optional;

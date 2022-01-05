@@ -1,4 +1,4 @@
-package ru.gb.gbthymeleaf.entity;
+package ru.gb.entityservice.model;
 
 import lombok.*;
 
