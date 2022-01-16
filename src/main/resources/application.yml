@@ -1,7 +1,12 @@
-spring.datasource:
-  url: 'jdbc:postgresql://localhost:5432/postgres'
-  username: 'root'
-  password: 'root'
+spring:
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/postgres'
+    username: 'root'
+    password: 'root'
+#  security:
+#    user:
+#      name: 'user'
+#      password: 'user'
 
 spring.jpa.hibernate:
   ddl-auto: update

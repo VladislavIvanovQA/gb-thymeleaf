@@ -1,9 +1,0 @@
-server.port: 8465
-
-spring.datasource:
-  url: 'jdbc:postgresql://localhost:5432/postgres'
-  username: 'root'
-  password: 'root'
-
-spring.jpa.hibernate:
-  ddl-auto: update
