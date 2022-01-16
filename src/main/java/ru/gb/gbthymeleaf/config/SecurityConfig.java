@@ -21,6 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/").permitAll()
                         .antMatchers("/product/all").permitAll()
                         .antMatchers(HttpMethod.POST, "/product").hasAuthority("ADMIN")
+                        .antMatchers(HttpMethod.GET, "/auth").anonymous()
                         .mvcMatchers(HttpMethod.GET, "/product/{productId}").permitAll()
         );
 
